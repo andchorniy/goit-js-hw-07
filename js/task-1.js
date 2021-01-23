@@ -4,9 +4,11 @@ console.log(`В списке ${listItemRef.length} категории.`);
 
 const itemTitleRef = document.querySelectorAll('.item > h2');
 const categoryListRef = document.querySelectorAll('.item > ul');
+ 
 
 const arrayTitle = Array.from(itemTitleRef)
 const arrayLists = Array.from(categoryListRef)
+
 
 for (let i = 0; i < arrayTitle.length; i+=1 ) { 
   const title = arrayTitle[i].textContent;
