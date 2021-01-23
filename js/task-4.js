@@ -1,30 +1,19 @@
+const counterValueRef = document.querySelector('#value');
+const decrementBtnRef = document.querySelector('button[data-action="decrement"]');
+const incrementBtnRef = document.querySelector('button[data-action="increment"]');
 
-class StringBuilder{
-  constructor(value) {
-    this._value = value
-  }
-  get value() {
-    return this._value;
-  }
-  append(str) {
-    this._value = this.value + str;
-  }
-  prepend(str) { 
-    this._value = str + this.value;
-  }
-  pad(str) {
-    this._value = str + this.value + str;
-  }
+const counterValue = +counterValueRef.textContent
+
+function increment() { 
+  counterValueRef.textContent ++
+ return 
+}
+function decrement() { 
+    counterValueRef.textContent --
+
+  return 
 }
 
-const builder = new StringBuilder('.');
+decrementBtnRef.addEventListener('click', decrement)
+incrementBtnRef.addEventListener('click', increment)
 
-
-builder.append('^');
-console.log(builder.value); // '.^'
-
-builder.prepend('^');
-console.log(builder.value); // '^.^'
-
-builder.pad('=');
-console.log(builder.value); // '=^.^='

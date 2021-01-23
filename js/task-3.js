@@ -1,41 +1,23 @@
+const images = [
+  {
+    url:
+      'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    alt: 'White and Black Long Fur Cat',
+  },
+  {
+    url:
+      'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    alt: 'Orange and White Koi Fish Near Yellow Koi Fish',
+  },
+  {
+    url:
+      'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    alt: 'Group of Horses Running',
+  },
+];
 
+const galleryRef = document.querySelector('#gallery');
 
-class Storage { 
-  constructor(items) {
-    this.items = items
-  }
-  getItems() { 
-    return this.items;
-  }
-  addItem(itemToAdd) {
-    
-    if (!this.items.includes(itemToAdd)) {
-      this.items.push(itemToAdd);
-    }
-  }
-  removeItem(itemToRemove) {
-    const newStorage = [];
-    for (const item of this.items) {
-      if (item !== itemToRemove) { 
-        newStorage.push(item);
-      }
-    }
-    this.items = newStorage;
-  }
-}
-
-
-const storage = new Storage([
-  'Нанитоиды',
-  'Пролонгер',
-  'Железные жупи',
-  'Антигравитатор',
-]);
-
-const items = storage.getItems();
-console.table(items); // [ "Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор" ]
-
-console.table(storage.items); // [ "Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор", "Дроид" ]
-
-storage.removeItem('Пролонгер');
-console.table(storage.items); // [ "Нанитоиды", "Железные жупи", "Антигравитатор", "Дроид" ]
+images.map(img =>
+  galleryRef.insertAdjacentHTML(
+    'afterbegin', `<img src=${img.url} alt=${img.alt}>`)); 

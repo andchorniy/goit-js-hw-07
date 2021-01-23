@@ -1,23 +1,18 @@
-const Account = function ({ login, email }) {
-  this.login = login;
-  this.email = email;
-};
-Account.prototype.getInfo = function() { 
-  console.log(`Login: ${this.login}, Email: ${this.email}`)
+const listRef = document.querySelector('#categories');
+const listItemRef = listRef.children
+console.log(`В списке ${listItemRef.length} категории.`);
+
+const itemTitleRef = document.querySelectorAll('.item > h2');
+const categoryListRef = document.querySelectorAll('.item > ul');
+
+const arrayTitle = Array.from(itemTitleRef)
+const arrayLists = Array.from(categoryListRef)
+
+for (let i = 0; i < arrayTitle.length; i+=1 ) { 
+  const title = arrayTitle[i].textContent;
+  const elements = arrayLists[i].children.length;
+  console.log(`Категория: ${title}`);
+  console.log(`Количество элементов: ${elements}`);
+
 }
 
-console.log(Account.prototype.getInfo); // function
-
-const mango = new Account({
-  login: 'Mangozedog',
-  email: 'mango@dog.woof',
-});
-
-mango.getInfo(); // Login: Mangozedog, Email: mango@dog.woof
-
-const poly = new Account({
-  login: 'Poly',
-  email: 'poly@mail.com',
-});
-
-poly.getInfo(); // Login: Poly, Email: poly@mail.com
