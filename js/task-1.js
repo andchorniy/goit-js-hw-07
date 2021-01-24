@@ -10,11 +10,6 @@ const arrayTitle = Array.from(itemTitleRef)
 const arrayLists = Array.from(categoryListRef)
 
 
-for (let i = 0; i < arrayTitle.length; i+=1 ) { 
-  const title = arrayTitle[i].textContent;
-  const elements = arrayLists[i].children.length;
-  console.log(`Категория: ${title}`);
-  console.log(`Количество элементов: ${elements}`);
-
-}
-
+arrayTitle.forEach((item, index) => { 
+  console.log(`Категория: ${item.textContent} \nКоличество элементов: ${arrayLists[index].children.length}`);
+})

@@ -1,9 +1,14 @@
 #gallery {
   display: flex;
-  justify-content: space-around;
 }
-#gallery > img {
+#gallery li {
+  list-style: none;
+  display: flex;
   width: 30%;
+  padding-left: 30px;
+}
+#gallery img {
+  width: 100%;
 }
 
 #validation-input {
