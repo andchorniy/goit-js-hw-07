@@ -3,30 +3,28 @@ const renderBtnRef = document.querySelector('button[data-action="render"]');
 const destroyBtnRef = document.querySelector('button[data-action="destroy"]');
 const boxesRef = document.querySelector('#boxes');
 
-renderBtnRef.addEventListener('click', render)
+renderBtnRef.addEventListener('click', () => createBoxes(inputRef.value))
 destroyBtnRef.addEventListener('click', destroyBoxes)
 
 
-function render() { 
-    createBoxes(inputRef.value)
-}
+let boxSize = 30
 
 function createBoxes(amount) { 
     for (let i = 1; i <= amount; i += 1) {
         const element = document.createElement('div')
-        element.style.width = `${20 + i*10}px`
-        element.style.height = `${20 + i*10}px`
+        element.style.width = `${boxSize}px`
+        element.style.height = `${boxSize}px`
         element.style.backgroundColor = getRandomColor()
         boxesRef.appendChild(element)
+        boxSize += 10
     } 
 }
 
 function destroyBoxes() { 
-    const boxToRemove = boxesRef.children
-    console.log(boxToRemove);
-    while (boxToRemove.length > 0) {
-        boxesRef.removeChild(boxToRemove[0])
-    }
+    const boxesToRemove = boxesRef.children
+    const arrBoxes = Array.from(boxesToRemove)
+    arrBoxes.forEach((box)=> box.remove())
+    boxSize = 30
 
 }
 

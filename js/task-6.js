@@ -9,5 +9,6 @@ function isValid(event) {
     }
     else {
         event.target.classList.add('invalid')
+        event.target.classList.remove('valid')
     }
 }

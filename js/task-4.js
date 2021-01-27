@@ -6,11 +6,11 @@ let counterValue = +counterValueRef.textContent
 
 function increment() { 
   counterValue += 1
- return counterValueRef.textContent = counterValue
+  counterValueRef.textContent = counterValue
 }
 function decrement() { 
     counterValue -= 1
-  return counterValueRef.textContent = counterValue
+   counterValueRef.textContent = counterValue
 }
 
 decrementBtnRef.addEventListener('click', decrement)
